@@ -1,26 +1,94 @@
-<div style=" height:100px; width:100%; padding-left: 16px; padding-right: 15.99px; background: white; justify-content: space-between; align-items: center; display: inline-flex">
-  <img style="width: 105px; height: 92px; position: relative" src="https://placehold.co/105x92" />
-  <div style="justify-content: center; align-items: center; gap: 32px; display: flex; padding:10px">
-    <div data-:hover="false" data-variant="5" style="flex-direction: column; justify-content: center; align-items: center; display: inline-flex">
-      <div style="text-align: center; justify-content: center; display: flex; flex-direction: column; color: var(--color-orange-53, #F97316); font-size: 16px; font-family: Inter; font-weight: 600; line-height: 24px; word-wrap: break-word">Inicio</div>
-    </div>
-    <div data-:hover="false" data-variant="6" style="flex-direction: column; justify-content: center; align-items: center; display: inline-flex">
-      <div style="text-align: center; justify-content: center; display: flex; flex-direction: column; color: var(--color-azure-27, #374151); font-size: 16px; font-family: Inter; font-weight: 600; line-height: 24px; word-wrap: break-word">Servicios</div>
-    </div>
-    <div data-:hover="false" data-variant="6" style="flex-direction: column; justify-content: center; align-items: center; display: inline-flex">
-      <div style="text-align: center; justify-content: center; display: flex; flex-direction: column; color: var(--color-azure-27, #374151); font-size: 16px; font-family: Inter; font-weight: 600; line-height: 24px; word-wrap: break-word">Nosotros</div>
-    </div>
-    <div data-:hover="false" data-variant="6" style="flex-direction: column; justify-content: center; align-items: center; display: inline-flex">
-      <div style="text-align: center; justify-content: center; display: flex; flex-direction: column; color: var(--color-azure-27, #374151); font-size: 16px; font-family: Inter; font-weight: 600; line-height: 24px; word-wrap: break-word">Aplicación</div>
-    </div>
-    <div data-:hover="false" data-variant="6" style="flex-direction: column; justify-content: center; align-items: center; display: inline-flex">
-      <div style="text-align: center; justify-content: center; display: flex; flex-direction: column; color: var(--color-azure-27, #374151); font-size: 16px; font-family: Inter; font-weight: 600; line-height: 24px; word-wrap: break-word">Testimonios</div>
-    </div>
-    <div data-:hover="false" data-variant="6" style="flex-direction: column; justify-content: center; align-items: center; display: inline-flex">
-      <div style="text-align: center; justify-content: center; display: flex; flex-direction: column; color: var(--color-azure-27, #374151); font-size: 16px; font-family: Inter; font-weight: 600; line-height: 24px; word-wrap: break-word">Contacto</div>
-    </div>
-    <div data-:hover="false" data-variant="1" style="height: 40px; padding-top: 9.50px; padding-bottom: 10.50px; padding-left: 16px; padding-right: 16px; background: #F97316; border-radius: 6px; justify-content: center; align-items: center; display: flex">
-      <div style="text-align: center; justify-content: center; display: flex; flex-direction: column; color: var(--color-white-solid, white); font-size: 16px; font-family: Inter; font-weight: 600; line-height: 24px; word-wrap: break-word">Descargar App</div>
+---
+// src/components/Header.astro
+import logoLycos from '../assets/logoLycos.svg?url';
+---
+
+<header class="h-[100px] w-full bg-white px-4 md:px-8 flex items-center justify-between top-0 left-0 right-0 z-40 shadow-sm">
+  <!-- Logo -->
+  <a href="/">
+    <img class="w-[70px] h-[70px" src={logoLycos} alt="Logo" />
+  </a>
+
+  <!-- Menú Desktop (oculto en móvil) -->
+   <div class="flex gap-4 ">
+      <nav class="hidden md:flex items-center gap-8">
+    <a href="#" class="text-orange-500 hover:text-orange-600 text-base font-semibold font-inter leading-6 transition-colors">Inicio</a>
+    <a href="#" class="text-gray-700 hover:text-orange-500 text-base font-semibold font-inter leading-6 transition-colors">Servicios</a>
+    <a href="#" class="text-gray-700 hover:text-orange-500 text-base font-semibold font-inter leading-6 transition-colors">Nosotros</a>
+    <a href="#" class="text-gray-700 hover:text-orange-500 text-base font-semibold font-inter leading-6 transition-colors">Aplicación</a>
+    <a href="#" class="text-gray-700 hover:text-orange-500 text-base font-semibold font-inter leading-6 transition-colors">Testimonios</a>
+    <a href="#" class="text-gray-700 hover:text-orange-500 text-base font-semibold font-inter leading-6 transition-colors">Contacto</a>
+
+  </nav>
+      <button class=" bg-orange-500 hover:bg-orange-600 text-white px-4 py-1.5 rounded-md text-base font-semibold font-inter leading-6 transition-colors">
+      Descargar App
+    </button>
+
+   </div>
+
+<!-- Menú Hamburguesa (solo móvil) -->
+<button id="hamburger" class="md:hidden focus:outline-none" aria-label="Abrir menú">
+  <div class="h-11 w-11 min-h-11 min-w-11 px-3.5 py-2 rounded-md inline-flex justify-center items-center hover:bg-orange-50 transition-colors">
+    <div class="w-4 h-4 relative">
+      <!-- Línea superior -->
+      <div class="w-5 h-0.5 bg-orange-500 absolute top-1 left-0 transform transition-transform duration-300 hamburger-line-top"></div>
+      <!-- Línea media -->
+      <div class="w-5 h-0.5 bg-orange-500 absolute top-2 left-0 transition-opacity duration-300 hamburger-line-middle"></div>
+      <!-- Línea inferior -->
+      <div class="w-5 h-0.5 bg-orange-500 absolute top-3 left-0 transform transition-transform duration-300 hamburger-line-bottom"></div>
     </div>
   </div>
-</div>
+</button>
+
+  <!-- Menú Móvil (overlay) -->
+  <div id="mobileMenu" class="fixed inset-0 bg-white z-50 flex flex-col items-center justify-center gap-8 translate-x-full transition-transform duration-300">
+    <a href="#" class="text-orange-500 text-xl font-semibold hover:text-orange-600">Inicio</a>
+    <a href="#" class="text-gray-700 text-xl font-semibold hover:text-orange-500">Servicios</a>
+    <a href="#" class="text-gray-700 text-xl font-semibold hover:text-orange-500">Nosotros</a>
+    <a href="#" class="text-gray-700 text-xl font-semibold hover:text-orange-500">Aplicación</a>
+    <a href="#" class="text-gray-700 text-xl font-semibold hover:text-orange-500">Testimonios</a>
+    <a href="#" class="text-gray-700 text-xl font-semibold hover:text-orange-500">Contacto</a>
+    <button class="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-md text-xl font-semibold mt-4 transition-colors">
+      Descargar App
+    </button>
+    <button id="closeMenu" class="absolute top-6 right-6 text-3xl focus:outline-none" aria-label="Cerrar menú">✕</button>
+  </div>
+</header>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const closeMenu = document.getElementById('closeMenu');
+    const mobileLinks = document.querySelectorAll('#mobileMenu a');
+
+    // Función para abrir/cerrar el menú
+    const toggleMenu = (open) => {
+      if (open) {
+        mobileMenu.classList.remove('translate-x-full');
+        document.body.style.overflow = 'hidden'; // Bloquear scroll
+      } else {
+        mobileMenu.classList.add('translate-x-full');
+        document.body.style.overflow = ''; // Restaurar scroll
+      }
+    };
+
+    // Event listeners con verificación de elementos
+    if (hamburger && mobileMenu && closeMenu) {
+      hamburger.addEventListener('click', () => toggleMenu(true));
+      closeMenu.addEventListener('click', () => toggleMenu(false));
+      
+      // Cerrar menú al hacer clic en enlaces (móvil)
+      mobileLinks.forEach(link => {
+        link.addEventListener('click', () => toggleMenu(false));
+      });
+    }
+  });
+</script>
+
+<style>
+  /* Asegurar que el body no haga scroll cuando el menú está abierto */
+  body.menu-open {
+    overflow: hidden;
+  }
+</style>

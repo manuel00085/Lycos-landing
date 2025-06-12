@@ -1,0 +1,60 @@
+---
+import star from "../assets/icon/star.svg?url"
+---
+<section class="w-full py-16 bg-white flex flex-col items-center">
+  <div class="max-w-[1400px] w-full px-4">
+    <!-- Encabezado -->
+    <div class="flex flex-col items-center gap-4 text-center mb-12 px-4">
+      <div class="px-4 py-1 bg-orange-100 rounded-full">
+        <p class="text-orange-500 text-sm font-medium">Lo que dicen nuestros clientes</p>
+      </div>
+      <h2 class="text-3xl sm:text-4xl font-bold text-blue-900">Testimonios</h2>
+      <p class="text-lg text-blue-700">
+        La satisfacción de nuestros clientes es nuestra mejor carta de presentación.<br class="hidden sm:block"/> Conoce sus experiencias con Lycos.
+      </p>
+    </div>
+
+    <!-- Tarjetas de testimonios -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Testimonio 1 -->
+      <div class="bg-white rounded-lg shadow-md border border-zinc-200 p-6 flex flex-col justify-between h-full">
+        <div class="flex items-center gap-1 mb-4">
+          {[...Array(5)].map(() => (
+            <i><img src={star} alt=""></i>
+          ))}
+        </div>
+        <p class="text-blue-700 mb-4">
+          El servicio de Lycos es excepcional. Diagnosticaron y repararon un problema eléctrico que otros talleres no pudieron resolver. Su app es muy útil para seguir el estado de las reparaciones.
+        </p>
+        <p class="font-semibold text-blue-900">Carlos Rodríguez</p>
+      </div>
+
+      <!-- Testimonio 2 -->
+      <div class="bg-white rounded-lg shadow-md border border-zinc-200 p-6 flex flex-col justify-between h-full">
+        <div class="flex items-center gap-1 mb-4">
+          {[...Array(5)].map(() => (
+                <i><img src={star} alt=""></i>
+          ))}
+        </div>
+        <p class="text-blue-700 mb-4">
+          Excelente atención y profesionalismo. Me encanta poder agendar mis servicios a través de la aplicación y recibir notificaciones sobre el estado de mi vehículo. Totalmente recomendado.
+        </p>
+        <p class="font-semibold text-blue-900">María González</p>
+      </div>
+
+      <!-- Testimonio 3 -->
+      <div class="bg-white rounded-lg shadow-md border border-zinc-200 p-6 flex flex-col justify-between h-full">
+        <div class="flex items-center gap-1 mb-4">
+          {[...Array(4)].map(() => (
+                <i><img src={star} alt=""></i>
+          ))}
+          <div class="w-4 h-4 bg-gray-300 rounded-full border border-gray-300"></div>
+        </div>
+        <p class="text-blue-700 mb-4">
+          He confiado en Lycos para el mantenimiento de mi vehículo durante meses. Su equipo es altamente capacitado y siempre ofrecen soluciones efectivas. La app es un plus que facilita todo el proceso.
+        </p>
+        <p class="font-semibold text-blue-900">Juan Pérez</p>
+      </div>
+    </div>
+  </div>
+</section>

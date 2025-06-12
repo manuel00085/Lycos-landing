@@ -1,5 +1,10 @@
 ---
 import logoLycos from "../assets/logoLycos.svg?url";
+import check from "../assets/icon/check.svg?url"
+import hand from "../assets/icon/hands.svg?url"
+import punter from "../assets/icon/punter.svg?url"
+import telecopy from "../assets/icon/telecopy.svg?url"
+
 ---
 
 <div class="w-full max-w-[1400px] px-2 py-10 mx-auto relative">
@@ -71,8 +76,8 @@ import logoLycos from "../assets/logoLycos.svg?url";
           },
         ].map(({ title, text }) => (
           <div class="flex items-start space-x-4">
-            <div class="p-2 bg-gray-200 rounded-full">
-              <div class="w-5 h-5 border border-orange-500"></div>
+            <div class=" p-1 bg-orange-100 rounded-full">
+              <img src={check} height="20" width="20" alt="">
             </div>
             <div>
               <p class="text-base font-medium text-sky-900">{title}</p>
@@ -96,20 +101,23 @@ import logoLycos from "../assets/logoLycos.svg?url";
     {[
       {
         title: "Misión",
+        icon:punter,
         text: "Ofrecemos un servicio de calidad para mantener los vehículos seguros y eficientes, mediante nuestra app LycoS Team, con una gestión honesta y centrada en el cliente.",
       },
       {
         title: "Visión",
+        icon:telecopy,
         text: "Convertirnos en un referente nacional en atención automotriz integral, mediante soluciones tecnológicas con LycoS Team, impulsando la innovación y la fidelidad de nuestros clientes.",
       },
       {
         title: "Valores",
+        icon:hand,
         text: "Valoramos la satisfacción del cliente, la honestidad, el respeto y la lealtad, guiando nuestro trabajo con orden, eficiencia y compromiso hacia el éxito compartido.",
       },
-    ].map(({ title, text }) => (
+    ].map(({ title, text, icon }) => (
       <div class="bg-white rounded-lg shadow p-6 text-center">
-        <div class="w-16 h-16 mx-auto mb-4 bg-gray-200 rounded-full flex items-center justify-center">
-          <div class="w-10 h-10 bg-orange-500"></div>
+        <div class="w-16 h-16 mx-auto mb-4 bg-orange-200 rounded-full flex items-center justify-center">
+          <img src={icon} alt="">
         </div>
         <h4 class="text-xl font-semibold text-sky-800 mb-2">{title}</h4>
         <p class="text-base text-sky-700">{text}</p>

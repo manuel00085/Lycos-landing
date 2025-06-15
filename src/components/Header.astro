@@ -3,7 +3,7 @@
 import logoLycos from '../assets/logoLycos.svg?url';
 ---
 
-<header class="h-[100px] w-full bg-white px-4 md:px-8 flex items-center justify-between top-0 left-0 right-0 z-40 shadow-sm">
+<header class="h-[100px] w-full bg-white px-4 md:px-8 flex items-center justify-between top-0 left-0 right-0 z-40 shadow-sm fixed">
   <!-- Logo -->
   <a href="/">
     <img class="w-[70px] h-[70px" src={logoLycos} alt="Logo" />
@@ -11,18 +11,18 @@ import logoLycos from '../assets/logoLycos.svg?url';
 
   <!-- Menú Desktop (oculto en móvil) -->
    <div class="flex gap-4 ">
-      <nav class="hidden md:flex items-center gap-8">
-    <a href="#" class="text-orange-500 hover:text-orange-600 text-base font-semibold font-inter leading-6 transition-colors">Inicio</a>
-    <a href="#" class="text-gray-700 hover:text-orange-500 text-base font-semibold font-inter leading-6 transition-colors">Servicios</a>
-    <a href="#" class="text-gray-700 hover:text-orange-500 text-base font-semibold font-inter leading-6 transition-colors">Nosotros</a>
-    <a href="#" class="text-gray-700 hover:text-orange-500 text-base font-semibold font-inter leading-6 transition-colors">Aplicación</a>
-    <a href="#" class="text-gray-700 hover:text-orange-500 text-base font-semibold font-inter leading-6 transition-colors">Testimonios</a>
-    <a href="#" class="text-gray-700 hover:text-orange-500 text-base font-semibold font-inter leading-6 transition-colors">Contacto</a>
-
+  <nav class="hidden md:flex items-center gap-8">
+    <a href="#inicio" class="nav-link text-gray-700 hover:text-orange-500 text-base font-semibold font-inter leading-6 transition-colors" data-section="inicio">Inicio</a>
+    <a href="#funcionalidades" class="nav-link text-gray-700 hover:text-orange-500 text-base font-semibold font-inter leading-6 transition-colors" data-section="funcionalidades">Servicios</a>
+    <a href="#nosotros" class="nav-link text-gray-700 hover:text-orange-500 text-base font-semibold font-inter leading-6 transition-colors" data-section="nosotros">Nosotros</a>
+    <a href="#app" class="nav-link text-gray-700 hover:text-orange-500 text-base font-semibold font-inter leading-6 transition-colors" data-section="app">Aplicación</a>
+    <a href="#testimonios" class="nav-link text-gray-700 hover:text-orange-500 text-base font-semibold font-inter leading-6 transition-colors" data-section="testimonios">Testimonios</a>
+    <a href="#contacto" class="nav-link text-gray-700 hover:text-orange-500 text-base font-semibold font-inter leading-6 transition-colors" data-section="contacto">Contacto</a>
   </nav>
-      <button class=" bg-orange-500 hover:bg-orange-600 text-white px-4 py-1.5 rounded-md text-base font-semibold font-inter leading-6 transition-colors">
+  <a href="https://play.google.com/store/apps/details?id=com.lycosdev.lycos" target="_blank"> <button class=" bg-orange-500 hover:bg-orange-600 text-white px-4 py-1.5 rounded-md text-base font-semibold font-inter leading-6 transition-colors">
       Descargar App
-    </button>
+    </button></a>
+
 
    </div>
 
@@ -48,42 +48,74 @@ import logoLycos from '../assets/logoLycos.svg?url';
     <a href="#" class="text-gray-700 text-xl font-semibold hover:text-orange-500">Aplicación</a>
     <a href="#" class="text-gray-700 text-xl font-semibold hover:text-orange-500">Testimonios</a>
     <a href="#" class="text-gray-700 text-xl font-semibold hover:text-orange-500">Contacto</a>
-    <button class="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-md text-xl font-semibold mt-4 transition-colors">
+  <a href="https://play.google.com/store/apps/details?id=com.lycosdev.lycos" target="_blank"> <button class=" bg-orange-500 hover:bg-orange-600 text-white px-4 py-1.5 rounded-md text-base font-semibold font-inter leading-6 transition-colors">
       Descargar App
-    </button>
+    </button></a>
+
     <button id="closeMenu" class="absolute top-6 right-6 text-3xl focus:outline-none" aria-label="Cerrar menú">✕</button>
   </div>
 </header>
 
 <script is:inline>
-  document.addEventListener('DOMContentLoaded', () => {
-    const hamburger = document.getElementById('hamburger');
-    const mobileMenu = document.getElementById('mobileMenu');
-    const closeMenu = document.getElementById('closeMenu');
-    const mobileLinks = document.querySelectorAll('#mobileMenu a');
+document.addEventListener('DOMContentLoaded', () => {
+  // Configuración del Intersection Observer
+  const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.6 // 60% de visibilidad para considerar activa
+  };
 
-    // Función para abrir/cerrar el menú
-    const toggleMenu = (open) => {
-      if (open) {
-        mobileMenu.classList.remove('translate-x-full');
-        document.body.style.overflow = 'hidden'; // Bloquear scroll
-      } else {
-        mobileMenu.classList.add('translate-x-full');
-        document.body.style.overflow = ''; // Restaurar scroll
-      }
-    };
-
-    // Event listeners con verificación de elementos
-    if (hamburger && mobileMenu && closeMenu) {
-      hamburger.addEventListener('click', () => toggleMenu(true));
-      closeMenu.addEventListener('click', () => toggleMenu(false));
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      const id = entry.target.id;
+      const navLink = document.querySelector(`.nav-link[data-section="${id}"]`);
       
-      // Cerrar menú al hacer clic en enlaces (móvil)
-      mobileLinks.forEach(link => {
-        link.addEventListener('click', () => toggleMenu(false));
-      });
-    }
+      if (entry.isIntersecting) {
+        // Remover activo de todos los links
+        document.querySelectorAll('.nav-link').forEach(link => {
+          link.classList.remove('text-orange-500');
+          link.classList.add('text-gray-700');
+        });
+        
+        // Activar el link correspondiente
+        if (navLink) {
+          navLink.classList.remove('text-gray-700');
+          navLink.classList.add('text-orange-500');
+        }
+      }
+    });
+  }, observerOptions);
+
+  // Observar todas las secciones
+  document.querySelectorAll('section[id], div[id], main > *[id]').forEach(section => {
+    observer.observe(section);
   });
+
+  // Tu código existente del menú móvil...
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const closeMenu = document.getElementById('closeMenu');
+  const mobileLinks = document.querySelectorAll('#mobileMenu a');
+
+  const toggleMenu = (open) => {
+    if (open) {
+      mobileMenu.classList.remove('translate-x-full');
+      document.body.style.overflow = 'hidden';
+    } else {
+      mobileMenu.classList.add('translate-x-full');
+      document.body.style.overflow = '';
+    }
+  };
+
+  if (hamburger && mobileMenu && closeMenu) {
+    hamburger.addEventListener('click', () => toggleMenu(true));
+    closeMenu.addEventListener('click', () => toggleMenu(false));
+    
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => toggleMenu(false));
+    });
+  }
+});
 </script>
 
 <style>

@@ -1,8 +1,17 @@
+---
+import logoLycos from '../assets/logoLycos.svg?url';
+import intagramIcon from "../assets/icon/instagram.svg?url";
+import wathAppIcon from "../assets/icon/wathApp.svg?url";
+import tiktokIcon from "../assets/icon/tiktok.svg?url";
+---
+
 <footer class="w-full bg-[#111827] text-gray-400 py-12">
   <div class="max-w-screen-xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
     <!-- Logo y descripción -->
     <div class="flex flex-col gap-4">
-      <img src="https://placehold.co/77x77" alt="Logo" class="w-20 h-20 rounded-full bg-white" />
+  <a href="/">
+    <img class="w-[70px] h-[70px] rounded-full object-fill" src={logoLycos} alt="Logo" />
+  </a>
       <p class="text-sm leading-relaxed">
         Taller automotriz especializado en<br />
         electrónica, mecánica y cerrajería. La<br />
@@ -10,29 +19,24 @@
         Mirandinos.
       </p>
       <div class="flex gap-4 mt-2">
-        <div class="w-10 h-10 rounded-full bg-[#1F2937]"></div>
-        <div class="w-10 h-10 rounded-full bg-[#1F2937] flex items-center justify-center">
-          <!-- íconos simulados -->
-          <div class="w-6 h-6 bg-white"></div>
-        </div>
-        <div class="w-10 h-10 rounded-full bg-[#1F2937] flex items-center justify-center">
-          <div class="w-6 h-7 bg-white"></div>
-        </div>
+ <a href="https://www.instagram.com/lycos.team/"><div class="w-10 h-10 bg-gray-800 rounded-full flex justify-center items-center"> <i><img src={intagramIcon} alt=""></i> </div></a>
+        <a href="https://api.whatsapp.com/send/?phone=584123343519&text&type=phone_number&app_absent=0"><div class="w-10 h-10 bg-gray-800 rounded-full flex justify-center items-center"> <i><img src={wathAppIcon} alt=""></i> </div></a>
+        <a href="https://www.tiktok.com/@lycos.team"><div class="w-10 h-10 bg-gray-800 rounded-full flex justify-center items-center"> <i><img src={tiktokIcon} alt=""></i></div></a>
       </div>
     </div>
 
     <!-- Enlaces rápidos -->
-    <div>
-      <h3 class="text-white font-semibold text-lg mb-4">Enlaces Rápidos</h3>
-      <ul class="space-y-2 text-sm">
-        <li>Inicio</li>
-        <li>Servicios</li>
-        <li>Nosotros</li>
-        <li>Aplicación</li>
-        <li>Testimonios</li>
-        <li>Contacto</li>
-      </ul>
-    </div>
+<div>
+  <h3 class="text-white font-semibold text-lg mb-4">Enlaces Rápidos</h3>
+  <ul class="space-y-2 text-sm flex flex-col">
+    <li><a href="#inicio" class="text-gray-300 hover:text-white transition-colors">Inicio</a></li>
+    <li><a href="#funcionalidades" class="text-gray-300 hover:text-white transition-colors">Servicios</a></li>
+    <li><a href="#nosotros" class="text-gray-300 hover:text-white transition-colors">Nosotros</a></li>
+    <li><a href="#app" class="text-gray-300 hover:text-white transition-colors">Aplicación</a></li>
+    <li><a href="#testimonios" class="text-gray-300 hover:text-white transition-colors">Testimonios</a></li>
+    <li><a href="#contacto" class="text-gray-300 hover:text-white transition-colors">Contacto</a></li>
+  </ul>
+</div>
 
     <!-- Servicios -->
     <div>

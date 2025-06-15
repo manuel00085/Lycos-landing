@@ -1,4 +1,13 @@
-    <div class="flex flex-col items-center text-center gap-4">
+ ---
+import locationIcon from "../assets/icon/location.svg?url";
+import clockIcon from "../assets/icon/clock.svg?url";
+import mailIcon from "../assets/icon/mail.svg?url";
+import phoneIcon from "../assets/icon/phone.svg?url";
+import intagramIcon from "../assets/icon/instagram.svg?url";
+import wathAppIcon from "../assets/icon/wathApp.svg?url";
+import tiktokIcon from "../assets/icon/tiktok.svg?url";
+ ---
+ <div class="flex flex-col items-center text-center gap-4">
       <div class="px-4 py-1 bg-orange-100 rounded-full">
         <span class="text-orange-600 text-sm font-medium">¿Necesitas ayuda?</span>
       </div>
@@ -6,7 +15,7 @@
       <p class="text-lg text-blue-700">Estamos aquí para atenderte. Comunícate con nosotros o visita nuestro taller.</p>
     </div>
 
-<section class="max-w-screen-xl mx-auto px-4 py-12 flex flex-col gap-12 md:flex-row">
+<section id="contacto" class="max-w-screen-xl mx-auto px-4 py-12 flex flex-col gap-12 md:flex-row">
   
   <!-- Formulario -->
   <div class="w-full md:w-1/2 bg-gray-100 p-6 md:p-8 rounded-lg shadow-lg">
@@ -54,19 +63,19 @@
     <div>
       <h3 class="text-2xl font-bold text-blue-900">Información de Contacto</h3>
       <ul class="mt-4 text-blue-700 text-sm space-y-2">
-        <li>📍 Altos Mirandinos, Estado Miranda, Venezuela</li>
-        <li>📞 +58 412-334-3519</li>
-        <li>📧 lycosteam7@gmail.com</li>
-        <li>🕒 Lunes a Sábado: 8:00 AM - 6:00 PM</li>
+        <li class="flex gap-2 items-center"> <i><img src={locationIcon} alt=""></i> Altos Mirandinos, Estado Miranda, Venezuela</li>
+        <li class="flex gap-2 items-center"> <i><img src={phoneIcon} alt=""></i> +58 412-334-3519</li>
+        <li class="flex gap-2 items-center"> <i><img src={mailIcon} alt=""></i> lycosteam7@gmail.com</li>
+        <li class="flex gap-2 items-center"> <i><img src={clockIcon} alt=""></i> Lunes a Sábado: 8:00 AM - 6:00 PM</li>
       </ul>
     </div>
 
     <div>
       <h3 class="text-2xl font-bold text-blue-900">Síguenos</h3>
       <div class="flex gap-4 mt-2">
-        <div class="w-10 h-10 bg-gray-800 rounded-full"></div>
-        <div class="w-10 h-10 bg-gray-800 rounded-full"></div>
-        <div class="w-10 h-10 bg-gray-800 rounded-full"></div>
+        <a href="https://www.instagram.com/lycos.team/"><div class="w-10 h-10 bg-gray-800 rounded-full flex justify-center items-center"> <i><img src={intagramIcon} alt=""></i> </div></a>
+        <a href="https://api.whatsapp.com/send/?phone=584123343519&text&type=phone_number&app_absent=0"><div class="w-10 h-10 bg-gray-800 rounded-full flex justify-center items-center"> <i><img src={wathAppIcon} alt=""></i> </div></a>
+        <a href="https://www.tiktok.com/@lycos.team"><div class="w-10 h-10 bg-gray-800 rounded-full flex justify-center items-center"> <i><img src={tiktokIcon} alt=""></i></div></a>
       </div>
     </div>
 
